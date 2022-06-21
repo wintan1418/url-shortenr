@@ -1,2 +1,29 @@
 <h1>Urls#new</h1>
 <p>Find me in app/views/urls/new.html.erb</p>
+<%= flash[:error] %>
+<%= form_with model: @url do |form| %>
+  <p>Please input the name of the url: <%= form.text_field :name %></p>
+  <p>Please input url you want to shorten: <%= form.text_field :long_url %></p>
+  <p>Please select user: <%= form.collection_select :user_id, User.all, :id, :name %></p>
+  <p>Please select category: <%= form.collection_select :category_id, Category.all, :id, :name %></p>
+  <%= form.submit %>
+<% end %>
+For other views they have similar construction.
+
+Url Model with helper method
+class Url < ApplicationRecord
+  belongs_to :user
+  belongs_to :category
+  validates :long_url, presence: true, length: { minimum: 30}
+  before_create :generate_short_url, :sanitize
+  def generate_short_url
+    rand(36**8).to_s(36)
+  end
+  def sanitize
+    long_url.strip!
+    sanitize_url = self.long_url.downcase.gsub(/(https?:\/\/)|(www\.)/,"")
+    "http://#{sanitize_url}"
+  end
+end
+Thank you for reading! Hope this can help to one of your project!
+
