@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+-run `git clone https://github.com/wintan1418/url-shortenr`
+-run `bundle i` to install dependencies`
+-open rails console with `rails c`
+- in the console run `link = Link.create(url:"https://getbootstrap.com/docs/4.6/components/carousel/", slug:"shorty")`
+-then call `link.short`
 
-Things you may want to cover:
+The link gets shortened
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
