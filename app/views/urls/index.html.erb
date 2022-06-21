@@ -1,6 +1,0 @@
-<% @urls.each do |url| %>
-  <ul>
-    <li><%= url.name %> - <%= link_to url.short_url, url.short_url(url) %> - <%= url.long_url %></li>
-  </ul>
-<% end %>
-<%= link_to 'Create another link', new_url_path %>

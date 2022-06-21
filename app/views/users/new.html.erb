@@ -1,2 +1,5 @@
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_with model: @user do |form| %>
+  <p>Please input your username: <%= form.text_field :username %></p>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Urls#new</h1>
+<p>Find me in app/views/urls/new.html.erb</p>
+<%= flash[:error] %>
+<%= form_with model: @url do |form| %>
+  <p>Please input the name of the url: <%= form.text_field :name %></p>
+  <p>Please input url you want to shorten: <%= form.text_field :long_url %></p>
+  <p>Please select user: <%= form.collection_select :user_id, User.all, :id, :username %></p>
+  
+  <%= form.submit %>
+<% end %>
+
+

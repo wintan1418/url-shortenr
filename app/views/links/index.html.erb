@@ -1,0 +1,6 @@
+<% @urls.each do |url| %>
+  <ul>
+  <li> <%= url.short_url %> </li>
+  </ul>
+<% end %>
+<%= link_to 'Create another link', new_url_path %>

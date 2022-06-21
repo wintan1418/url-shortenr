@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  belongs_to :urls
+  has_many :urls
 end
